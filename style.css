@@ -1,0 +1,140 @@
+/* === Reset / podstawy === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px; /* bazowy rozmiar (dla rem) */
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'IBM Plex Mono', monospace;
+  background-color: #0d0d0d;
+  color: #f0f0f0;
+  line-height: 1.6;
+  min-height: 100vh;
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* === Kontener główny === */
+.welcome {
+  max-width: 900px;
+  width: 100%;
+  padding: 2rem;
+  text-align: center;
+}
+
+/* === Tytuł === */
+.site-title {
+  font-family: 'Jacquard 12', serif;
+  font-size: 5rem;
+  font-weight: normal;
+  letter-spacing: 2px;
+  margin-bottom: 1rem;
+  line-height: 6rem;
+  color: #eaeaea;
+  animation: flicker 3s infinite alternate;
+}
+
+@keyframes flicker {
+  0%, 100% {
+    text-shadow:
+      0 0 2px #d4d4d4,
+      0 0 5px #d4d4d4,
+      0 0 8px #d4d4d4,
+      0 0 8px #d4d4d4,
+      0 0 8px #d4d4d4,
+      0 0 10px #d4d4d4;
+    color: #0d0d0d;
+  }
+  50% {
+    text-shadow: none;
+    color: #b6b6b6;
+  }
+}
+
+/* === Podtytuł === */
+.subtitle {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.8rem;
+  font-style: normal;
+  color: #999;
+  margin-bottom: 2rem;
+}
+
+/* === H1 === */
+.site-h1 {
+  font-family: 'Pixelify Sans', sans-serif;
+  font-size: 2rem;
+  font-weight: normal;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 1rem;
+  line-height: 6rem;
+  color: #b6b6b6;
+}
+
+/* === Nawigacja === */
+.room-links {
+  font-family: 'Pixelify Sans', sans-serif;
+  text-transform: uppercase;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.room-link,
+.room-links a {
+  color: #d4d4d4;
+  text-decoration: none;
+  font-size: 1rem;
+  border: 0px solid #444;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0px;
+  transition: all 0.2s ease;
+}
+
+.room-link:hover,
+.room-links a:hover {
+  background-color: #d4d4d4;
+  color: #0d0d0d;
+  border-color: #666;
+}
+
+/* === Niedostępny pokój === */
+.room-links a[href="###"] {
+  opacity: 0.5;
+  pointer-events: none;
+  border-style: dashed;
+}
+
+/* === RESPONSYWNOŚĆ === */
+@media (min-width: 600px) {
+
+  .room-links {
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .room-link {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .site-title {
+    font-size: 3rem;
+    line-height: 3.5rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+  }
+}
