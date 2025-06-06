@@ -92,27 +92,34 @@ body {
 }
 
 /* === Podtytuł === */
-.subtitle {
+.paragraph {
   font-size: 0.8rem;
   font-style: normal;
   color: #999;
-  margin-bottom: 2rem;
+  margin: 1rem 0;
+}
+
+.framed::before {
+  content: "--- ";
+}
+
+.framed::after {
+  content: " ---";
 }
 
 /* === H1 === */
 .site-h1 {
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: normal;
   text-transform: none;
   letter-spacing: 2px;
-  margin-bottom: 1rem;
-  line-height: 2rem;
   color: #f0f0f0;
 
 }
 
 /* === Nawigacja === */
 .room-links {
+  margin: 1rem 0;
   text-transform: uppercase;
   display: flex;
   flex-direction: column;
@@ -121,42 +128,63 @@ body {
 
 .room-link,
 .room-links a {
-  color: #999;
+  color: #f0f0f0;
   text-decoration: none;
   font-size: 1rem;
   border: 0px solid #0d0d0d;
   padding: 0.75rem 1.5rem;
   border-radius: 0px;
-  transition: all 0.1s ease;
-}
-
-.room-links a::before {
-  content: "⋮⋮⋮⋮⋮► ";
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.room-links a:hover::before {
-  opacity: 1;
-}
-
-.room-links a::after {
-  content: " ◄⋮⋮⋮⋮⋮";
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.room-links a:hover::after {
-  opacity: 1;
+  transition: text-shadow 0.3s;
 }
 
 .room-link:hover,
 .room-links a:hover {
-  background-color: #f0f0f0;
-  color: #0d0d0d;
-  border-color: #0d0d0d;
   cursor: crosshair;
-  letter-spacing: 0.1rem;
+  background-color: #0f0f0f;
+  
+  animation: distort 0.3s steps(3, end) infinite;
+  color: #999;
+  text-shadow: 2px 0 red, -2px 0 blue;
+  transform: translateX(1px);
+}
+
+@keyframes distort {
+  0% { transform: translate(0, 0); }
+  25% { transform: translate(-1px, 1px); }
+  50% { transform: translate(1px, -1px); }
+  75% { transform: translate(-1px, -1px); }
+  100% { transform: translate(1px, 1px); }
+}
+
+.room-link::before,
+.room-link::after {
+  opacity: 0;
+  transition: opacity 0.2s;
+  animation: none;
+  font-weight: bold;
+}
+
+.room-link::before {
+  content: "> ";
+  margin-right: 0.25em;
+  color: #f0f0f0;
+}
+
+.room-link::after {
+  content: " <";
+  margin-left: 0.25em;
+  color: #f0f0f0;
+}
+
+.room-link:hover::before,
+.room-link:hover::after {
+  animation: blink 1s steps(2, start) infinite;
+  opacity: 1;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 0; }
+  50% { opacity: 1; }
 }
 
 /* === Niedostępny pokój === */
@@ -186,7 +214,17 @@ body {
     line-height: 3.5rem;
   }
 
-  .subtitle {
+  .paragraph {
     font-size: 0.8rem;
   }
+
+}
+
+.room-link,
+.room-links a {
+font-size: 0.8rem;
+}
+
+.site-h1 {
+  font-size: 1.2rem;
 }
