@@ -13,7 +13,7 @@ window.addEventListener('DOMContentLoaded', () => {
   };
 
   const basePath = getRelativePathToRoot(); // np. '', '../', '../../'
-  const soundFolder = `${basePath}sound/`;
+  const soundFolder = `${basePath}/hollowarchives/sound/`;
 
   // === Wstępne ładowanie dźwięków ===
   document.querySelectorAll('.with-sound').forEach(link => {
