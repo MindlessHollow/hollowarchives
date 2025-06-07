@@ -62,7 +62,7 @@ body {
   /* wysokość separatora, dopasuj do obrazka */
   margin: 2rem auto;
 
-  background-image: url('../img/s7.png');
+  background-image: url('img/index/s7.png');
   background-repeat: repeat-x;
   /* powtarzaj w poziomie */
   background-position: center center;

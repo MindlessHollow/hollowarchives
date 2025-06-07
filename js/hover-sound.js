@@ -1,19 +1,6 @@
 window.addEventListener('DOMContentLoaded', () => {
   const soundCache = {};
-
-  // === Inteligentna detekcja ścieżki ===
-  // Sprawdza, ile razy trzeba się cofnąć, by dotrzeć do katalogu głównego
-  const getRelativePathToRoot = () => {
-    const depth = window.location.pathname
-      .replace(/\/$/, '') // usuń końcowy slash
-      .split('/')
-      .filter(part => part !== '').length - 1;
-
-    return '../'.repeat(depth);
-  };
-
-  const basePath = getRelativePathToRoot(); // np. '', '../', '../../'
-  const soundFolder = `${basePath}sound/`;
+  const soundFolder = '../sound/'; // stała ścieżka - zawsze jeden poziom wyżej
 
   // === Wstępne ładowanie dźwięków ===
   document.querySelectorAll('.with-sound').forEach(link => {
