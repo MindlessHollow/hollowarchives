@@ -1,0 +1,244 @@
+/* === Reset / podstawy === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  /* bazowy rozmiar (dla rem) */
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Silkscreen", sans-serif;
+  background-color: #1f0b04;
+  color: #b3542b;
+  line-height: 1.6;
+  min-height: 100vh;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* === Kontener główny === */
+.box {
+  max-width: 900px;
+  width: 100%;
+  padding: 0.5rem;
+}
+
+#dialogue-box{
+  cursor: crosshair;
+}
+
+#text-content{
+  padding-left: 8%;
+  padding-right: 8%;
+}
+
+.header-img {
+  text-align: center;         /* wyśrodkowanie poziome */
+}
+
+.header-img img {
+  max-width: 90%;            /* skalowanie w poziomie do szerokości rodzica */
+  height: auto;               /* zachowanie proporcji */
+  display: inline-block;      /* konieczne do centrowania w text-align */
+}
+
+
+/* === Separator === */
+
+.separator-box {
+  width: 100%;
+  /* zajmuje całą szerokość kontenera */
+  max-width: 800px;
+  /* lub inna max szerokość */
+  height: 50px;
+  /* wysokość separatora, dopasuj do obrazka */
+  margin: 2rem auto;
+
+  background-image: url('../img/s7.png');
+  background-repeat: repeat-x;
+  /* powtarzaj w poziomie */
+  background-position: center center;
+  /* wyśrodkuj w pionie */
+  background-size: auto 20px;
+  /* dopasuj wysokość obrazka, szerokość auto */
+  opacity: 0.4;
+
+  box-sizing: border-box;
+  padding: 0 1rem;
+  /* marginesy po bokach, żeby nie ucięło */
+}
+
+/* === Paragraf === */
+.paragraph {
+  text-align: justify;
+  font-size: 0.8rem;
+  font-style: normal;
+  color: #b3542b;
+  margin: 1rem 0;
+  cursor: crosshair;
+}
+
+
+/* === H1 === */
+.site-h1 {
+  font-size: 1.5rem;
+  font-weight: normal;
+  text-transform: none;
+  letter-spacing: 2px;
+  color: #f0f0f0;
+
+}
+
+/* === Nawigacja === */
+.room-links {
+  margin: 1rem 0;
+  text-transform: uppercase;
+  display: flex;
+  flex-direction: column;
+  gap: 0rem;
+}
+
+.room-link,
+.room-links a {
+  color: #b3542b;
+  text-decoration: none;
+  font-size: 1rem;
+  border: 0px solid #0d0d0d;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0px;
+  transition: text-shadow 0.3s;
+}
+
+.room-link:hover,
+.room-links a:hover {
+  cursor: crosshair;
+  background-color: #270e05;
+
+  animation: distort 0.3s steps(3, end) infinite;
+  color: #e7d8bb;
+  text-shadow: 2px 0 #2f4139, -2px 0 #b3542b;
+  transform: translateX(1px);
+}
+
+@keyframes distort {
+  0% {
+    transform: translate(0, 0);
+  }
+
+  25% {
+    transform: translate(-1px, 1px);
+  }
+
+  50% {
+    transform: translate(1px, -1px);
+  }
+
+  75% {
+    transform: translate(-1px, -1px);
+  }
+
+  100% {
+    transform: translate(1px, 1px);
+  }
+}
+
+.room-link::before,
+.room-link::after {
+  opacity: 0;
+  transition: opacity 0.2s;
+  animation: none;
+  font-weight: bold;
+}
+
+.room-link::before {
+  content: "< ";
+  margin-right: 0.25em;
+  color: #e7d8bb;
+}
+
+.room-link::after {
+  content: " >";
+  margin-left: 0.25em;
+  color: #e7d8bb;
+}
+
+.room-link:hover::before,
+.room-link:hover::after {
+  animation: blink 1s steps(2, start) infinite;
+  opacity: 1;
+}
+
+@keyframes blink {
+
+  0%,
+  100% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+/* === Niedostępny pokój === */
+ a[href="###"] {
+  opacity: 0.5;
+  pointer-events: none;
+  border-style: dashed;
+}
+
+.footer {
+  font-size: 0.6rem;
+  font-style: normal;
+  color: #572f1f;
+  margin: 1rem 0;
+}
+
+/* === Zaznaczenie === */
+::selection {
+  background: #b3542b; /* kolor tła zaznaczenia */
+  color: #0d0d0d;      /* kolor tekstu zaznaczonego */
+}
+
+/* === RESPONSYWNOŚĆ === */
+@media (min-width: 600px) {
+
+  .room-links {
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .room-link {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .site-title {
+    font-size: 4rem;
+    line-height: 3.5rem;
+  }
+
+  .paragraph {
+    font-size: 0.8rem;
+  }
+
+}
+
+.room-link,
+.room-links a {
+  font-size: 0.8rem;
+}
+
+.site-h1 {
+  font-size: 1.2rem;
+}
