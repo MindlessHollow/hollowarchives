@@ -76,46 +76,48 @@ body {
       2px 0 red,
       -2px 0 cyan;
   }
+
   20% {
     text-shadow:
       -2px 0 red,
       2px 0 cyan;
   }
+
   40% {
     text-shadow:
       2px 0 cyan,
       -2px 0 red;
   }
-  60%, 100% {
+
+  60%,
+  100% {
     text-shadow: none;
   }
 }
 
 /* === Separator === */
+
 .separator-box {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  width: 100%;
+  /* zajmuje całą szerokość kontenera */
+  max-width: 800px;
+  /* lub inna max szerokość */
+  height: 50px;
+  /* wysokość separatora, dopasuj do obrazka */
   margin: 2rem auto;
-  max-width: 100%;
-  flex-wrap: nowrap; /* NIE pozwalamy na łamanie */
-  box-sizing: border-box;
-  padding: 0 1rem; /* opcjonalnie: zapas przy krawędziach ekranu */
-}
 
-.separator {
+  background-image: url('img/s7.png');
+  background-repeat: repeat-x;
+  /* powtarzaj w poziomie */
+  background-position: center center;
+  /* wyśrodkuj w pionie */
+  background-size: auto 20px;
+  /* dopasuj wysokość obrazka, szerokość auto */
   opacity: 0.4;
-  width: 45%;       /* oba razem zajmą 90% miejsca, z przerwą między */
-  height: auto;
-  max-width: 200px; /* ogranicz górny rozmiar, jeśli chcesz */
-  flex-shrink: 1;   /* pozwól im się zmniejszać */
-}
 
-.separator-still{
-  opacity: 0.8;
-  display: block;
-  margin: 2rem auto;
-  max-width: 25%;
+  box-sizing: border-box;
+  padding: 0 1rem;
+  /* marginesy po bokach, żeby nie ucięło */
 }
 
 /* === Podtytuł === */
@@ -126,17 +128,6 @@ body {
   margin: 1rem 0;
 }
 
-
-/* === 
-.framed::before {
-  content: "--- ";
-}
-
-.framed::after {
-  content: " ---";
-}
-
-=== */
 
 /* === H1 === */
 .site-h1 {
@@ -172,7 +163,7 @@ body {
 .room-links a:hover {
   cursor: crosshair;
   background-color: #0f0f0f;
-  
+
   animation: distort 0.3s steps(3, end) infinite;
   color: #999;
   text-shadow: 2px 0 red, -2px 0 blue;
@@ -180,11 +171,25 @@ body {
 }
 
 @keyframes distort {
-  0% { transform: translate(0, 0); }
-  25% { transform: translate(-1px, 1px); }
-  50% { transform: translate(1px, -1px); }
-  75% { transform: translate(-1px, -1px); }
-  100% { transform: translate(1px, 1px); }
+  0% {
+    transform: translate(0, 0);
+  }
+
+  25% {
+    transform: translate(-1px, 1px);
+  }
+
+  50% {
+    transform: translate(1px, -1px);
+  }
+
+  75% {
+    transform: translate(-1px, -1px);
+  }
+
+  100% {
+    transform: translate(1px, 1px);
+  }
 }
 
 .room-link::before,
@@ -214,8 +219,15 @@ body {
 }
 
 @keyframes blink {
-  0%, 100% { opacity: 0; }
-  50% { opacity: 1; }
+
+  0%,
+  100% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
 }
 
 /* === Niedostępny pokój === */
@@ -225,11 +237,17 @@ body {
   border-style: dashed;
 }
 
-.footer{
+.footer {
   font-size: 0.6rem;
   font-style: normal;
   color: #575757;
   margin: 1rem 0;
+}
+
+/* === Zaznaczenie === */
+::selection {
+  background: #999; /* kolor tła zaznaczenia */
+  color: #0d0d0d;      /* kolor tekstu zaznaczonego */
 }
 
 /* === RESPONSYWNOŚĆ === */
@@ -260,7 +278,7 @@ body {
 
 .room-link,
 .room-links a {
-font-size: 0.8rem;
+  font-size: 0.8rem;
 }
 
 .site-h1 {
