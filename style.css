@@ -6,18 +6,18 @@
 }
 
 html {
-  font-size: 16px;
+  font-size: 26px;
   /* bazowy rozmiar (dla rem) */
   scroll-behavior: smooth;
 }
 
 body {
-  font-family: "Silkscreen", sans-serif;
+  font-family: "VT323", monospace;
   background-color: #0d0d0d;
   color: #f0f0f0;
   line-height: 1.6;
   min-height: 100vh;
-  padding: 2rem;
+  padding: 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -28,18 +28,19 @@ body {
 .welcome {
   max-width: 900px;
   width: 100%;
-  padding: 0.5rem;
+  padding: 0rem;
   text-align: center;
 }
 
 /* === Tytuł === */
 .site-title {
   font-family: 'Jacquard 12', serif;
-  font-size: 6rem;
+  font-size: 4rem;
   font-weight: normal;
   letter-spacing: 2px;
-  margin-bottom: 1rem;
-  line-height: 6rem;
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+  line-height: 0rem;
   color: #f0f0f0;
   animation: flicker 3s infinite alternate;
 }
@@ -104,9 +105,9 @@ body {
   /* lub inna max szerokość */
   height: 50px;
   /* wysokość separatora, dopasuj do obrazka */
-  margin: 2rem auto;
+  margin: 0.5rem auto;
 
-  background-image: url('img/index/s7.png');
+  background-image: url('img/s7.png');
   background-repeat: repeat-x;
   /* powtarzaj w poziomie */
   background-position: center center;
@@ -122,10 +123,10 @@ body {
 
 /* === Podtytuł === */
 .paragraph {
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   font-style: normal;
   color: #999;
-  margin: 1rem 0;
+  margin: 0.5rem 0;
 }
 
 
@@ -141,7 +142,7 @@ body {
 
 /* === Nawigacja === */
 .room-links {
-  margin: 1rem 0;
+  margin: 0.2rem 0;
   text-transform: uppercase;
   display: flex;
   flex-direction: column;
@@ -152,9 +153,9 @@ body {
 .room-links a {
   color: #f0f0f0;
   text-decoration: none;
-  font-size: 1rem;
+  font-size: 1.5rem;
   border: 0px solid #0d0d0d;
-  padding: 0.75rem 1.5rem;
+  padding: 0.4rem 1.5rem;
   border-radius: 0px;
   transition: text-shadow 0.3s;
 }
